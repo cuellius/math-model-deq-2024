@@ -1,0 +1,223 @@
+\documentclass[
+	openany, % Allow chapters to start on odd and even pages
+	%parskip=full, % Large space between paragraphs
+	11pt, % Default font size
+	a4paper, % Paper size, use letterpaper for US letter size
+]{book} % Custom class defining the style and layout of the template
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage{mathtools}
+\usepackage{fancyhdr}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{microtype}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{rsfso}
+\usepackage[mathscr]{eucal}
+
+\captionsetup[figure]{font=small}
+
+\usepackage{geometry}
+\geometry{
+   a4paper,
+   total={170mm,257mm},
+   margin=20mm,
+   footskip=-3.5mm,
+   headsep=2mm
+}
+
+\renewcommand{\baselinestretch}{0.9}
+
+\newcommand{\Title}[1]{\begin{center}\baselineskip=6.0mm{\Large\textbf{#1}}\end{center}\vspace*{0.5mm}}
+\newcommand{\Author}[1]{\centerline{\large\textbf{#1}}\vspace*{-3.5mm}}
+
+\newcommand{\SuperScript}[1]{\textsuperscript{\normalfont #1}}
+
+\newcommand{\Star}{\textasteriskcentered{}}
+\newcommand{\TwoStars}{\Star{}\textasteriskcentered{}}
+\newcommand{\ThreeStars}{\TwoStars{}\textasteriskcentered{}}
+\newcommand{\FourStars}{\ThreeStars{}\textasteriskcentered{}}
+\newcommand{\FiveStars}{\FourStars{}\textasteriskcentered{}}
+\newcommand{\SixStars}{\FiveStars{}\textasteriskcentered{}}
+
+\begin{document}
+
+\renewcommand{\abstractname}{}
+
+% В команде Title определеляем название
+\Title{Название работы}%
+
+% В команде Author распологаем авторов статьи:
+% 1) Через запятую перечисляем авторов в формате: <Первая буква имени>. <Первая буква отчества>. <Фамилия> (отчества может не быть)
+% 2) После каждого автора верхним индексом с помощью команды стилевого файла \SuperScript 
+%    указываем аффилиации цифрами и числом <<звездочек>> (команды стилевого файла \Star, \TwoStars, \ThreeStars...)
+
+\Author{А.~Т.~Менетил\SuperScript{1,2\Star}, А.~Л.~Ринн\SuperScript{2\TwoStars}, К.~Гримтотем\SuperScript{3\ThreeStars}}
+
+\begin{center}
+% Здесь указываем аффилиации по порядку, в формате: Организация, Город, Страна
+% Название одной аффилиации не должно занимать более одной строки
+% Нельзя использовать очень краткие формы организаций, такие как БГУ, поскольку у различных университетов они совпадают
+% Можно использовать как полное название, так и полусокращенное, например: Белорусский ГУ, Санкт-Петербургский ГУ...
+\SuperScript{1}\textit{Управление делами Короля-лича, Ледяная корона, Нортренд} \\ %здесь "Управление делами Короля-лича" -- это название организации, Ледяная корона -- название города, Нортренд -- название страны
+\SuperScript{2}\textit{Академия управления имени регента Б.~Фордрагона, Штормград, Альянс} \\
+\SuperScript{3}\textit{Хранилище воплощений, Тирхольд, Королевство Тальдрасус} \\
+
+\vspace*{0.5mm}
+
+% Далее перечисляем e-mail'ы авторов. Допустимо указать e-mail не для всех авторов, 
+% но у автора, ответственного за переписку должен быть указан e-mail
+\textit{e-mail: \SuperScript{\Star}arthas@phi.org, \SuperScript{\TwoStars}anduinwrynn@alliance-top-mail.com, \SuperScript{\ThreeStars}alltotem@of-master.org} %
+%% Если есть финансовая поддержка, то раскомментируете следующую строку и заполните ее содержимое
+%% \let\thefootnote\relax\footnote{Работа выполнена при финансовой поддержке Министерства науки и высшего образования Российской Федерации в рамках реализации программы Московского центра фундаментальной и прикладной математики по соглашению № 075-15-2022-284.}
+\end{center}
+
+%По образцу заполняем строку для содержания сборника
+\addcontentsline{toc}{section}{Менетил~А.~Т., Ринн~А.~Л., Гримтотем~К., Название работы}
+
+\noindent\makebox[\textwidth][c]{
+\begin{minipage}{0.92\textwidth}
+\small{
+\textbf{Аннотация.} Здесь пишем краткую аннотацию (примерно 1-2 предложения объемом 2-3 строки), например: <<Для телеграфного уравнения с нелинейным потенциалом, заданным в первом квадранте, рассматриваются первая и вторая смешанные задачи, для которых исследуются вопросы, связанные с отсутствием, неединственностью и разрушением классических решений>>.
+}
+\end{minipage}
+}
+
+\bigskip
+
+\textbf{Базовые требования к оформлению тезисов.} Доклад должен быть подготовлен в системе \LaTeX{} с использованием стилевого файла, предоставляемого оргкомитетом конференции. При этом строго запрещено использовать собственные стилевые файлы и переопределять команды \LaTeX'a.
+
+Объем тезиса должен составлять одну полную страницу. Тезисы иного объема допускаются в индивидуальном порядке, по решению оргкомитета.
+
+В аннотации и названии работы дозволяется использование несложных формул.
+
+В общем и целом, тезис следует оформлять в соответствии с правилами и рекомендациями, изложенными в книгах~[1, 2].
+
+Файл должен быть назван в формате вида \verb|MenethilAT|, где \verb|Menethil| -- фамилия первого автора, \verb|A| -- первая буква имени первого автора и \verb|T| -- первая буква отчества автора. В названии файла необходимо использовать только буквы английского алфавита.
+
+\textbf{О наборе и нумерации формул.} Для набора нумерованных формул необходимо применять окружения типа \verb|equation|, \verb|multline|, \verb|align|, \verb|gather| и т. п. Нумерация формул должна быть автоматической, т.~е. команду \verb|\eqno| использовать не дозволяется. При этом авторы должны обеспечить уникальность собственных меток формул относительно меток авторов других тезисов из сборника, поэтому название метки должно начинаться с фамилии первого автора статьи.
+
+Дроби в формулах, которые не выносятся в отдельные строки, а также многоярусные дроби в формулах, выделенных в отдельную строку, следует записывать через косую черту или использовать отрицательные показатели.
+
+Математические функции типа $\sin$, $\tg$, $\arcsin$ набираются прямым шрифтом. <<Операторы>> типа $\lim$, $\sup$, $\inf$ также набираются прямым шрифтом. Экспоненциальную функцию со сложным аргументом следует записывать в виде $\exp(\cdots)$. Математические символы и обозначения, используемые в формулах, должны соответстовать международному стандарту ISO 80000-2:2019. Не допускается использование букв русского алфавита в формулах.
+
+\textbf{О наборе определений, лемм, теорем и прочих утверждений.} Определения набираются прямым шрифтом, при этом определяемое понятие выделяется курсивом. Прочие утверждения, за исключением замечаний, набираются курсивом. Замечания набираются прямым шрифтом. Для ясности приведем примеры. 
+
+\textbf{Определение 1.} Обобщенная координата $q_k$ называется \textit{циклической}, если функция Лагранжа $\mathcal L$ от нее не зависит, т.~е. $\dfrac{\partial \mathcal L}{\partial q_k} = 0$.
+
+\textbf{Теорема 1 (об изменении кинетической энегрии системы).} \textit{Если на систему наложены стационарные идеальные связи, то дифференциал кинетической энергии системы равен сумме элементарных работ внешних и внутренних активных сил на действительных перемещениях точек системы.}
+
+\textbf{Доказательство.} Я не знаю как это доказывать.
+
+\textbf{Замечание 1.} Обобщенная сила $Q_i$ может быть найдена по какой-то формуле. 
+
+\textbf{Замечание 2 (случай потенциальных сил).} Если все активные силы системы потенциальны, то уравнения Лагранжа 2-ого рода примут вид
+\begin{equation*}
+    \frac{d}{d t} \left(\frac{\partial \mathscr{L}}{\partial \dot{q}_i}\right) - \frac{\partial \mathscr{L}}{\partial q_i} = 0, \quad i = 1,\dots,N,
+\end{equation*} 
+где $\mathscr{L} = T - \Pi$ -- функция Лагранжа механической системы.
+
+При наборе определений, лемм, теорем и прочих утверждений запрещается использовать окружения типа \verb|newtheorem| и \verb|newenvironment|, необходимо использовать подходы, указанные выше в настоящем файле.
+
+\textbf{О вставке рисунков.} Тезис может содержать рисунки. Рекомендуется выполнение иллюстраций в формате TikZ или pic. Приведем несколько примеров вставки рисунков. Допустима вставка рисунков в других форматах, например: eps, png, gif, jpg, svg, pdf и~т.~д. и~т.~п. При этом если файл статьи назвается \verb|MenethilAT|, то файлы рисунков должны называться \verb|MenethilAT_FigureN|, где $N$ -- номер рисунка. 
+
+\begin{figure}[htb]
+    \begin{center}
+        \begin{tikzpicture}[scale=3]
+            \clip (-0.6,-0.2) rectangle (0.6,1.51);
+            \draw[step=.5cm,help lines] (-1.4,-1.4) grid (1.4,1.4);
+            \filldraw[fill=green!20,draw=green!50!black] (0,0) -- (3mm,0mm)
+              arc [start angle=0, end angle=30, radius=3mm] -- cycle;
+            \draw[->] (-1.5,0) -- (1.5,0);   \draw[->] (0,-1.5) -- (0,1.5);
+            \draw (0,0) circle [radius=1cm];
+          
+            \foreach \x in {-1,-0.5,1}
+              \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+            \foreach \y in {-1,-0.5,0.5,1}
+              \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+        \end{tikzpicture}
+    \end{center}
+    \caption{Какой-то TikZ-рисунок c сайта \url{https://tikz.dev/tutorial}.}
+\end{figure}
+
+\begin{figure}[htb]
+    \begin{picture}(367.75,161)(0,0)
+        \multiput(11.25,13.75)(.03372626064,.09446627374){1527}{\line(0,1){.09446627374}}
+        \multiput(62.75,158)(3.0252809,.03370787){89}{\line(1,0){3.0252809}}
+        \multiput(332,161)(.03372641509,-.05353773585){1060}{\line(0,-1){.05353773585}}
+        \multiput(367.75,104.25)(-.061991869919,-.033739837398){2460}{\line(-1,0){.061991869919}}
+        \multiput(215.25,21.25)(-.979567308,-.033653846){208}{\line(-1,0){.979567308}}
+        \multiput(11.5,14.25)(.04751984127,.03373015873){2520}{\line(1,0){.04751984127}}
+        \multiput(131.25,99.25)(.03371767994,-.04315164221){1431}{\line(0,-1){.04315164221}}
+        \multiput(179.5,37.5)(.03373893805,.04009955752){904}{\line(0,1){.04009955752}}
+        \multiput(210,73.75)(.0337389381,.0530973451){452}{\line(0,1){.0530973451}}
+        \multiput(225.25,97.75)(-.0825581395,.0337209302){645}{\line(-1,0){.0825581395}}
+        \multiput(172,119.5)(-.03358209,-.152985075){201}{\line(0,-1){.152985075}}
+        \put(201,123.625){\oval(186.5,43.75)[l]}
+        \put(243.25,113.625){\oval(9.5,47.25)[]}
+        \multiput(83.18,129.68)(0,-.94444){10}{{\rule{.4pt}{.4pt}}}
+        \multiput(83.18,121.18)(.75,0){3}{{\rule{.4pt}{.4pt}}}
+        \multiput(83.18,129.68)(.75,0){3}{{\rule{.4pt}{.4pt}}}
+        \multiput(84.68,129.68)(0,-.94444){10}{{\rule{.4pt}{.4pt}}}
+        \multiput(87.43,123.43)(0,-.97222){10}{{\rule{.4pt}{.4pt}}}
+        \multiput(87.43,114.68)(.91667,0){10}{{\rule{.4pt}{.4pt}}}
+        \multiput(87.43,123.43)(.91667,0){10}{{\rule{.4pt}{.4pt}}}
+        \multiput(95.68,123.43)(0,-.97222){10}{{\rule{.4pt}{.4pt}}}
+        \multiput(125.18,133.18)(0,-.9875){21}{{\rule{.4pt}{.4pt}}}
+        \multiput(125.18,113.43)(.9881,0){22}{{\rule{.4pt}{.4pt}}}
+        \multiput(125.18,133.18)(.9881,0){22}{{\rule{.4pt}{.4pt}}}
+        \multiput(145.93,133.18)(0,-.9875){21}{{\rule{.4pt}{.4pt}}}
+        \multiput(116.93,84.68)(0,-.985714){36}{{\rule{.4pt}{.4pt}}}
+        \multiput(116.93,50.18)(.98125,0){41}{{\rule{.4pt}{.4pt}}}
+        \multiput(116.93,84.68)(.98125,0){41}{{\rule{.4pt}{.4pt}}}
+        \multiput(156.18,84.68)(0,-.985714){36}{{\rule{.4pt}{.4pt}}}
+        \put(174.75,83.75){\dashbox{1}(53,54.25)[cc]{}}
+        \end{picture}
+    \caption{Какой-то рисунок в формате pic.}
+\end{figure}
+
+Каждый рисунок обязан иметь подпись.
+
+\textbf{О наборе литературы.} Список литературы оформляется по образцу, представленному в данном файле: книги~[1--3], диссертация~[4], автореферат диссертации~[5], статьи~[6--8], отдельные части из книг~[9], материалы конференций~[10], arXiv-препринты~[11].
+
+\begin{center}{\textbf{Список литературы}}\end{center}
+
+\small{1. \textit{Львовский~С.~М.} Набор и верстка в системе \LaTeX. М., 2003.}
+
+\small{2. \textit{Котельников~И.~А., Чеботаев~П.~З.} Издательская система \LaTeXe. Новосибирск, 1998.}
+
+\small{3. \textit{Evans~L.~C.} Partial Differential Equations. Providence, 2010.}
+
+\small{4. \textit{Столярчук~И.~И.} Классические решения смешанных задач для уравнения Клейна--Гордона--Фока: дис. \dots канд. физ.-мат. наук. Гродно, 2020.}
+
+\small{5. \textit{Мандрик~А.~А.} Классические решения граничных задач для гиперболических уравнений третьего порядка на плоскости: автореф. дис. \dots канд. физ.-мат. наук. Минск, 2017.}
+
+\small{6. \textit{Ikeda~M., Inui~T., Wakasugi~Y.} The Cauchy problem for the nonlinear damped wave equation with slowly
+decaying data //~Nonlin. Differ. Equat. Appl. 2017. V.~50. №~2. Art.~10.}
+
+\small{7. \textit{Хромов~А.~П.} Расходящиеся ряды и обобщённая смешанная задача для волнового уравнения простейшего вида //~Изв. Саратовского ун-та. Нов. сер. Сер.: Математика. Механика. Информатика. 2022. Т.~22. №~3. C. 322--331.}
+
+\small{8. \textit{Kharibegashvili~S., Jokhadze~O.} The second Darboux problem for the wave equation with integral
+nonlinearity //~Trans. of A. Razmadze Math. Inst. 2016. V.~170. №~3. P.~385--394.}
+
+\small{9. \textit{Bullough~R.~K., Caudrey~P.~J., Gibbs~H.~M.} The double sine-Gordon equations: a physically applicable
+system of equations //~Solitons. Topics in Current Physics / Eds. R.K. Bullough, P.J. Caudrey. Berlin; Heidelberg, 1980. V.~17. P.~107--141.}
+
+\small{10. \textit{Korzyuk~V.~I., Rudzko~J.~V.} Classical solution of the initial-value problem for a one-dimensional quasilinear
+wave equation //~XX междунар. науч. конф. по дифференц. уравнениям (Еругинские чтения--2022). Новополоцк, 2022. Ч.~2. С.~38--39.}
+
+\small{11. \textit{Korzyuk~V.~I., Rudzko~J.~V.} Curvilinear parallelogram identity and mean-value property for a semilinear
+hyperbolic equation of second-order //~arXiv:2204.09408.}
+
+\end{document}
+
